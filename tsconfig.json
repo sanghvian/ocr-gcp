@@ -21,12 +21,15 @@
     "jsx": "react-jsx",
     "baseUrl":"./",
     "paths":{
-        "@components/*":["./src/components/*"],
-        "@reducers/*":["./src/redux/reducers/*"],
-        "@actions/*":["./src/redux/actions/*"],
-        "@redux/*":["./src/redux/*"],
-        "@styles/*":["./assets/css/*"],
-        "@images/*":["./assets/images/*"]
+      "@components/*":["./src/components/*"],
+      "@reducers/*":["./src/redux/reducers/*"],
+      "@actions/*":["./src/redux/actions/*"],
+      "@redux/*":["./src/redux/*"],
+      "@styles/*":["./assets/css/*"],
+      "@images/*":["./assets/images/*"]
     }
   },
+  "include": [
+    "./"
+  ],
 }
