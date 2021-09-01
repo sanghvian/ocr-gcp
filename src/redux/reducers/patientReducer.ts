@@ -2,23 +2,33 @@ import * as actions from '@actions/actionTypes'
 
 interface Report {
     fileUrls: string[],
-    phoneNumber?: string, 
+    phoneNumber?: string, // to link a report to a unqiue patient
     date: Date,
     uuid?: string,
     tag: string,
-    
 }
 
+enum Mode {
+    VIEW_REPORT = "view-report",
+    UPLOAD_REPORT = "upload-report",
+    VIEW_REPORTS = "view-reports"
+}
 
 interface State{
     patientName: string, // phone number will be uuid
     phoneNum: string,
-    reports:Report []
+    reports: Report[],
+    mode:Mode
 }
 
-const initialState = {}
+let initialState: State = {
+    mode: Mode.VIEW_REPORTS,
+    patientName: "Sam Altman",
+    phoneNum: '9820178330',
+    reports : []
+}
 
-const patientReducer = (state:any, action:any) => {
+const patientReducer = (state:State = initialState, action:any) => {
     switch (action.type) {
         case actions.ADDING_REPORT:
             console.log('report is being uploaded')
