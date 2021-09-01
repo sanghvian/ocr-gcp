@@ -1,14 +1,14 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import store from '@redux/store'
+import {useSelector} from 'react-redux'
 
 function App() {
+  const state = useSelector((state) => state)
+  
+  console.log(state)
   return (
-    <Provider store = {store}>
       <div className="App">
         hi
       </div>
-    </Provider>
   );
 }
 
