@@ -1,5 +1,19 @@
 import * as actions from '@actions/actionTypes'
-import { defaultCipherList } from 'constants'
+
+interface Report {
+    fileUrl: string,
+    phoneNume: string,
+    date: Date,
+    uuid?:string
+}
+
+
+interface State{
+    patientName: string,
+    phoneNum: string,
+    reports:Report []
+}
+
 const initialState = {}
 
 const patientReducer = (state:any, action:any) => {
