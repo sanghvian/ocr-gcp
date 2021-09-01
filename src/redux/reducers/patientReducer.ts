@@ -1,8 +1,8 @@
-import * as actions from '@actions/actionTypes'
+import * as actions from '../actions/actionTypes'
 
 interface Report {
     fileUrls: string[],
-    phoneNumber?: string, // to link a report to a unqiue patient
+    phoneNumber?: string, // to link a report to a unique patient
     date: Date,
     uuid?: string,
     tag: string,
@@ -21,7 +21,7 @@ interface State{
     mode:Mode
 }
 
-let initialState: State = {
+const initialState: State = {
     mode: Mode.VIEW_REPORTS,
     patientName: "Sam Altman",
     phoneNum: '9820178330',
@@ -37,6 +37,7 @@ const patientReducer = (state:State = initialState, action:any) => {
             }
         default:
             console.log('default case triggered')
+            return {...state};
     }
 }
 
