@@ -1,8 +1,8 @@
 import * as actions from '@actions/actionTypes'
 
-interface Report {
+export interface Report {
     fileUrls: string[],
-    phoneNumber?: string, // to link a report to a unique patient
+    phoneNumber: string, // to link a report to a unique patient
     date: Date,
     uuid?: string,
     tag: string,
@@ -14,7 +14,7 @@ enum Mode {
     VIEW_REPORTS = "view-reports"
 }
 
-interface State{
+export interface State{
     patientName: string, // phone number will be uuid
     phoneNum: string,
     reports: Report[],
@@ -28,12 +28,12 @@ const initialState: State = {
     reports : []
 }
 
-const patientReducer = (state:State = initialState, action:any) => {
-    switch (action.type) {
+const patientReducer = (state:State = initialState, {type,payload}:any) => {
+    switch (type) {
         case actions.ADDING_REPORT:
             console.log('report is being uploaded')
             return {
-                ...state
+                ...state,
             }
         default:
             console.log('default case triggered')
