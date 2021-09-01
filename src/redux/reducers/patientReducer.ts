@@ -1,15 +1,17 @@
 import * as actions from '@actions/actionTypes'
 
 interface Report {
-    fileUrl: string,
-    phoneNume: string,
+    fileUrls: string[],
+    phoneNumber?: string, 
     date: Date,
-    uuid?:string
+    uuid?: string,
+    tag: string,
+    
 }
 
 
 interface State{
-    patientName: string,
+    patientName: string, // phone number will be uuid
     phoneNum: string,
     reports:Report []
 }
