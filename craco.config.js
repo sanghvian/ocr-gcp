@@ -1,12 +1,21 @@
-const path = require("path");
+// craco.config.js
+const CracoAlias = require('craco-alias')
 module.exports = {
-  webpack: {
-    alias: {
-      '@components': path.resolve(__dirname, "src/components/"),
-      '@images': path.resolve(__dirname, "src/assets/images/"),
-      '@redux': path.resolve(__dirname, "src/redux/"),
-      '@reducers': path.resolve(__dirname, "src/redux/reducers/"),
-      '@actions': path.resolve(__dirname, "src/redux/actions/"),
-    }
-  }
+    plugins: [
+        {
+            plugin: CracoAlias,
+            options: {
+                source: 'tsconfig',
+                // baseUrl SHOULD be <specified></specified>
+                // plugin does not take it from tsconfig
+
+                //! VERY IMPORTANT => That this baseUrl is the same as the one you have used in tsconfig.paths.json
+
+                baseUrl: './',
+                /* tsConfigPath should point to the file where "baseUrl" and "paths" 
+              are specified*/
+                tsConfigPath: './tsconfig.paths.json',
+            },
+        },
+    ],
 }
