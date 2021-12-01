@@ -1,0 +1,43 @@
+@mixin flexbox($flexDirection, $justifyContent, $alignItems) {
+	display: flex;
+	justify-content: $justifyContent;
+	align-items: $alignItems;
+	flex-direction: $flexDirection;
+}
+
+$secondary: #f5f9f9;
+$primary: #1bb4a4;
+
+.upload-modal-child {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex !important;
+	background: $secondary;
+	padding: 2rem;
+	border-radius: 1rem;
+	@include flexbox(column, center, center);
+	position: relative;
+	form {
+		@include flexbox(column, flex-start, flex-start);
+		label,
+		input,
+		button,
+		img {
+			margin-top: 2rem;
+		}
+	}
+}
+
+.close-button {
+	position: absolute;
+	background: red;
+	color: white;
+	font-size: 1rem;
+	border-top-right-radius: 1rem;
+	top: 0;
+	right: 0;
+	padding: 1rem;
+	cursor: pointer;
+}
